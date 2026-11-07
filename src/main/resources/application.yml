@@ -1,6 +1,11 @@
 spring:
   application:
     name: resilience4j
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 resilience4j:
   circuitbreaker:
     configs:
@@ -15,3 +20,9 @@ resilience4j:
         permitted-number-of-calls-in-half-open-state: 10
         automatic-transition-from-open-to-half-open-enabled: true
         register-health-indicator: true
+    instances:
+      cb:
+        baseConfig: default
+logging:
+  level:
+    com.java.resilience4j: trace
