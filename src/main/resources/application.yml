@@ -23,6 +23,19 @@ resilience4j:
     instances:
       cb:
         baseConfig: default
+  ratelimiter:
+    configs:
+      default:
+        register-health-indicator: true
+        limit-for-period: 5
+        limit-refresh-period: 60s
+        timeout-duration: 0s
+        allow-health-indicator-to-fail: true
+        subscribe-for-events: true
+        event-consumer-buffer-size: 50
+    instances:
+      rl:
+        baseConfig: default
 logging:
   level:
     com.java.resilience4j: trace
